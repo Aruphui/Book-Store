@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Admin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Library Admin</h1>
+        <div class="form-container">
+            <input type="text" id="title" placeholder="Book Title">
+            <input type="text" id="author" placeholder="Author">
+            <input type="file" id="pdf">
+            <input type="file" id="cover" accept="image/*">
+            <button onclick="addBook()">Add Book</button>
+        </div>
+        <div class="book-list">
+            <h2>Book List</h2>
+            <ul id="books"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
