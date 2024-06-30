@@ -1,5 +1,5 @@
 FROM node
-RUN mkdir /app
+RUN mkdir -p /app/pdfs /app/covers
 COPY . /app
 WORKDIR /app
 RUN npm install
