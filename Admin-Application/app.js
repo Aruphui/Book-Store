@@ -41,10 +41,15 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Database setup
-const db = new sqlite3.Database(':memory:');
+const dbPath = path.join(__dirname, 'data', 'books.db');
+const dbDir = path.join(__dirname, 'data');
+if (!fs.existsSync(dbDir)) {
+    fs.mkdirSync(dbDir);
+}
+const db = new sqlite3.Database(dbPath);
 
 db.serialize(() => {
-    db.run("CREATE TABLE books (id INTEGER PRIMARY KEY, title TEXT, author TEXT, pdf TEXT, cover TEXT)");
+    db.run("CREATE TABLE IF NOT EXISTS books (id INTEGER PRIMARY KEY, title TEXT, author TEXT, pdf TEXT, cover TEXT)");
 });
 
 // Routes
