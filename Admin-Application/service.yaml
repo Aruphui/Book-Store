@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  admin-app:
+    build: ./Admin-Application
+    ports:
+      - "3001:3001"
+    volumes:
+      - data:/app/data
+      - pdfs:/app/pdfs
+      - covers:/app/covers
+
+  user-app:
+    build: ./User-Application
+    ports:
+      - "3000:3000"
+    volumes:
+      - pdfs:/app/pdfs
+      - covers:/app/covers
+
+volumes:
+  data:
+  pdfs:
+  covers:
